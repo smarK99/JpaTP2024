@@ -3,6 +3,7 @@ package org.example;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,12 +13,15 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "factura")
-public class Factura {
+public class Factura implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    @Column
     int numero;
+    @Column
     int total;
+    @Column
     String fecha;
 }
