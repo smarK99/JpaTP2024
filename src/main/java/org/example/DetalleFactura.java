@@ -17,11 +17,10 @@ public class DetalleFactura implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column
-    int cantidad;
+    private int cantidad;
     @Column
-    int subtotal;
-
+    private int subtotal;
 }

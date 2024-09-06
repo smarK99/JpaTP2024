@@ -23,4 +23,5 @@ public class Domicilio implements Serializable {
     String nombreCalle;
     @Column
     int numero;
+
 }

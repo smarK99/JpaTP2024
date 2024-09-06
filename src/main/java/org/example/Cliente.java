@@ -1,9 +1,11 @@
 package org.example;
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,13 +19,25 @@ public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column
-    String nombre;
+    private String nombre;
+
     @Column
-    String apellido;
+    private String apellido;
+
     @Column
-    int dni;
+    private int dni;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @Column
+    @JoinColumn(name = "fk_domicilio")
+    private Domicilio domicilio;
+
+    @OneToMany
+    @Column
+    @JoinColumn(name = "fk_facturas")
+    private ArrayList<Factura>facturaList = new ArrayList<>();
 
 }

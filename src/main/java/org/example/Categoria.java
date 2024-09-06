@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,9 +18,13 @@ public class Categoria implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column
-    String denominacion;
+    private String denominacion;
 
+    @ManyToMany
+    @Column
+    @JoinColumn(name = "fk_articulos")
+    private ArrayList<Articulo>articulos = new ArrayList<>();
 }

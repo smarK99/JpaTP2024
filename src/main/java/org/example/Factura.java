@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,12 +17,17 @@ import java.io.Serializable;
 public class Factura implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column
-    int numero;
+    private int numero;
     @Column
-    int total;
+    private int total;
     @Column
-    String fecha;
+    private String fecha;
+
+    @OneToMany
+    @Column
+    @JoinColumn(name = "fk_detallefactura")
+    private ArrayList<DetalleFactura>detalleFacturas = new ArrayList<>();
 }
