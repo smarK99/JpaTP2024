@@ -35,9 +35,9 @@ public class Cliente implements Serializable {
     @JoinColumn(name = "fk_domicilio")
     private Domicilio domicilio;
 
-    @OneToMany
-    @Column
-    @JoinColumn(name = "fk_facturas")
-    private ArrayList<Factura>facturaList = new ArrayList<>();
-
+    //En caso de querer bidireccionalidad con factura
+    /*
+    @OneToMany(mappedBy="cliente")//referencia al objeto dentro de factura
+    private List<Factura>facturaList = new ArrayList<>();
+     */
 }

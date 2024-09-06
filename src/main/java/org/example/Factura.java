@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,8 +27,12 @@ public class Factura implements Serializable {
     @Column
     private String fecha;
 
-    @OneToMany
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @Column
-    @JoinColumn(name = "fk_detallefactura")
-    private ArrayList<DetalleFactura>detalleFacturas = new ArrayList<>();
+    @JoinColumn(name = "fk_cliente")
+    private Cliente cliente;
+
+    //Se eliminan todos los detalles a la hora de borrar una factura
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DetalleFactura>detallesFactura = new ArrayList<>();
 }

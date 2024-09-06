@@ -24,4 +24,14 @@ public class Domicilio implements Serializable {
     @Column
     int numero;
 
+    /*Si quisieramos hacer bidireccional la relacion con cliente
+    * Agregar mappedBy
+    * (Esta bidireccionalidad no se va a ver reflejada en la bdd por que no hay relaciones de este tipo)
+    *
+    * @OneToOne(mappedBy = "domicilio")
+    * private Cliente cliente;
+    *
+    * */
+
+
 }
