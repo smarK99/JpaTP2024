@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,8 +24,7 @@ public class Categoria implements Serializable {
     @Column
     private String denominacion;
 
-    @ManyToMany
-    @Column
-    @JoinColumn(name = "fk_articulos")
-    private ArrayList<Articulo>articulos = new ArrayList<>();
+    //Para la bidireccionalidad con articulo
+//    @ManyToMany(mappedBy = "categorias")
+//    private List<Articulo> articulos = new ArrayList<>();
 }

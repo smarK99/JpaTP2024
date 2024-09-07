@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,9 +29,11 @@ public class Articulo implements Serializable {
     @Column
     private String denominacion;
 
-    @ManyToMany
-    @Column
-    @JoinColumn(name = "fk_categorias")
-    private ArrayList<Categoria>categorias = new ArrayList<>();
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "articulo_categoria",
+                joinColumns = @JoinColumn(name = "articulo_id"),
+                inverseJoinColumns = @JoinColumn(name = "categoria_id")
+    )
+    private List<Categoria> categorias = new ArrayList<>();
 
 }
