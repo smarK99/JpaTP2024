@@ -89,7 +89,7 @@ public class Main {
             Factura factura1 = Factura.builder()
                     .id(1L)
                     .numero(1)
-                    .total(1000)
+                    .total(1600)
                     .fecha("8/9/2024")
                     .detallesFactura(List.of(detalle1,detalle2))
                     .cliente(cliente1)
@@ -103,7 +103,7 @@ public class Main {
 
             // Consultar y mostrar la entidad persistida
             Factura retrievedFactura = entityManager.find(Factura.class, factura1.getId());
-            System.out.println("Retrieved Person: " + retrievedFactura.toString());
+            System.out.println("Retrieved Factura: " + retrievedFactura.toString());
 
         }catch (Exception e){
 
