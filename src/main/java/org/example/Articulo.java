@@ -34,6 +34,7 @@ public class Articulo implements Serializable {
                 joinColumns = @JoinColumn(name = "articulo_id"),
                 inverseJoinColumns = @JoinColumn(name = "categoria_id")
     )
+    @Builder.Default
     private List<Categoria> categorias = new ArrayList<>();
 
 }

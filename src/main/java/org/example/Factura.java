@@ -34,5 +34,6 @@ public class Factura implements Serializable {
 
     //Se eliminan todos los detalles a la hora de borrar una factura
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private List<DetalleFactura>detallesFactura = new ArrayList<>();
 }
